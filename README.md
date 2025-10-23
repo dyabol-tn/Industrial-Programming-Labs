@@ -1,4 +1,6 @@
-# Industrial-Programming-Labs
+# Industrial-Programming-Labs:
+- [Laboratory Work 2](#лабораторная--2)
+- [Laboratory Work 2 (дополнительная)](#лабораторная--2-дополнительное-задание)
 
 # Лабораторная № 2
 
