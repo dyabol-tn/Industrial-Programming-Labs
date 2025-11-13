@@ -1,0 +1,35 @@
+Type: TABLET
+Model: Iphone 16 Pro
+Model Number: MYN03J/A
+Serial Number: H9J8HGY055W
+Cost: 1099
+Release date: 20/09/2024
+Operating system: IOS
+Chip NFC: yes
+
+Type: COMPUTER
+Model: Dell OptiPlex
+Model Number: 7010
+Serial Number: ABC123XYZ
+Cost: 899
+Release date: 15/05/2023
+Body Form Factor: Tower
+Wifi Module: yes
+
+Type: LAPTOP
+Model: HP Spectre
+Model Number: X360
+Serial Number: DEF456UVW
+Cost: 1299
+Release date: 10/08/2023
+Num Pad: no
+Touch Screen: yes
+
+Type: TABLET
+Model: iPad Air
+Model Number: 5th Gen
+Serial Number: GHI789RST
+Cost: 599
+Release date: 01/03/2023
+Operating system: iPadOS
+Chip NFC: true
