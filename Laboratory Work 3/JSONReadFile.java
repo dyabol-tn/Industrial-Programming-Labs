@@ -1,7 +1,12 @@
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 class JSONReadFile {
     public JSONReadFile() {}
@@ -34,7 +39,7 @@ class JSONReadFile {
         return storage;
     }
 
-    private Factory createDeviceFromJSON(JSONObject deviceJson) throws ParseException {
+    private Factory createDeviceFromJSON(JSONObject deviceJson) throws ParseException, JSONException {
         String type = deviceJson.getString("type");
         String model = deviceJson.getString("model");
         String modelNumber = deviceJson.getString("modelNumber");
