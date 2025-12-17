@@ -21,7 +21,6 @@ abstract class Factory {
     }
 
     abstract void getInfo();
-
     abstract String getDeviceType();
 
     public String getModel() {

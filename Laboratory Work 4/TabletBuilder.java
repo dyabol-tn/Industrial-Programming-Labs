@@ -1,8 +1,32 @@
 import java.util.Date;
 
-public class TabletBuilder extends DeviceBuilder {
-    private String operatingSystem;
-    private boolean chipNFC;
+public class TabletBuilder extends DeviceBuilder<Tablets> {
+    private String caseType;
+    private String processor;
+    private boolean wifiModule;
+    private String screen;
+    private String operatingSystem = "Unknown";
+    private boolean chipNFC = false;
+
+    public TabletBuilder setCaseType(String caseType) {
+        this.caseType = caseType;
+        return this;
+    }
+
+    public TabletBuilder setProcessor(String processor) {
+        this.processor = processor;
+        return this;
+    }
+
+    public TabletBuilder setWifiModule(boolean wifiModule) {
+        this.wifiModule = wifiModule;
+        return this;
+    }
+
+    public TabletBuilder setScreen(String screen) {
+        this.screen = screen;
+        return this;
+    }
 
     public TabletBuilder setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
@@ -47,22 +71,10 @@ public class TabletBuilder extends DeviceBuilder {
     @Override
     public Tablets build() {
         validateRequiredFields();
-        return new Tablets(model, modelNumber, serialNumber, cost,
-                releaseDate, operatingSystem, chipNFC);
-    }
-
-    private void validateRequiredFields() {
-        if (model == null || model.isEmpty()) {
-            throw new IllegalStateException("Модель не может быть пустой");
-        }
-        if (serialNumber == null || serialNumber.isEmpty()) {
-            throw new IllegalStateException("Серийный номер не может быть пустым");
-        }
-        if (cost <= 0) {
-            throw new IllegalStateException("Цена должна быть положительной");
-        }
-        if (releaseDate == null) {
-            throw new IllegalStateException("Дата выпуска не может быть null");
-        }
+        Tablets tablet = new Tablets(model, modelNumber, serialNumber, cost, releaseDate,
+                caseType, processor, wifiModule, screen);
+        tablet.setOperatingSystem(operatingSystem);
+        tablet.setChipNFC(chipNFC);
+        return tablet;
     }
 }

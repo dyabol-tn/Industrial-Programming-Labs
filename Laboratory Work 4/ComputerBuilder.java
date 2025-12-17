@@ -1,11 +1,41 @@
 import java.util.Date;
 
-public class ComputerBuilder extends DeviceBuilder {
-    private String bodyFormFactor;
-    private boolean wifiModule;
+public class ComputerBuilder extends DeviceBuilder<Computers> {
+    private String caseType;
+    private String motherboard;
+    private String processor;
+    private String hardDrive;
+    private String ram;
+    private String powerSupply;
+    private boolean wifiModule = false;
 
-    public ComputerBuilder setBodyFormFactor(String bodyFormFactor) {
-        this.bodyFormFactor = bodyFormFactor;
+    public ComputerBuilder setCaseType(String caseType) {
+        this.caseType = caseType;
+        return this;
+    }
+
+    public ComputerBuilder setMotherboard(String motherboard) {
+        this.motherboard = motherboard;
+        return this;
+    }
+
+    public ComputerBuilder setProcessor(String processor) {
+        this.processor = processor;
+        return this;
+    }
+
+    public ComputerBuilder setHardDrive(String hardDrive) {
+        this.hardDrive = hardDrive;
+        return this;
+    }
+
+    public ComputerBuilder setRam(String ram) {
+        this.ram = ram;
+        return this;
+    }
+
+    public ComputerBuilder setPowerSupply(String powerSupply) {
+        this.powerSupply = powerSupply;
         return this;
     }
 
@@ -47,22 +77,9 @@ public class ComputerBuilder extends DeviceBuilder {
     @Override
     public Computers build() {
         validateRequiredFields();
-        return new Computers(model, modelNumber, serialNumber, cost,
-                releaseDate, bodyFormFactor, wifiModule);
-    }
-
-    private void validateRequiredFields() {
-        if (model == null || model.isEmpty()) {
-            throw new IllegalStateException("Модель не может быть пустой");
-        }
-        if (serialNumber == null || serialNumber.isEmpty()) {
-            throw new IllegalStateException("Серийный номер не может быть пустым");
-        }
-        if (cost <= 0) {
-            throw new IllegalStateException("Цена должна быть положительной");
-        }
-        if (releaseDate == null) {
-            throw new IllegalStateException("Дата выпуска не может быть null");
-        }
+        Computers computer = new Computers(model, modelNumber, serialNumber, cost, releaseDate,
+                caseType, motherboard, processor, hardDrive, ram, powerSupply);
+        computer.setWifiModule(wifiModule);
+        return computer;
     }
 }
